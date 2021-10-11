@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ChemCalcApp</string>
+    <string name="mainInputPlaceholder">Introduce la fórmula o nombre</string>
 </resources>
