@@ -1,4 +1,4 @@
-package com.sito.chemcalc.domain
+package com.sito.chemcalc.domain.syntaxis
 
 class SynElement(
     var Symbol: String,
