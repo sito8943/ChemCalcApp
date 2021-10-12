@@ -23,8 +23,12 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun MolarWeight() {
 
-    val error = ""
-    val formula = remember {
+    var error = ""
+    var formula = remember {
+        mutableStateOf(TextFieldValue())
+    }
+
+    var result = remember {
         mutableStateOf(TextFieldValue())
     }
 
@@ -50,6 +54,8 @@ fun MolarWeight() {
                 .padding(5.dp)
         ) {
             TextField(
+                enabled = false,
+                singleLine = true,
                 placeholder = { Text(text = stringResource(id = R.string.resultPlaceholder)) },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = Color.Blue,
@@ -57,8 +63,8 @@ fun MolarWeight() {
                 ),
                 modifier = Modifier
                     .fillMaxWidth(),
-                value = formula.value,
-                onValueChange = { formula.value = it })
+                value = result.value,
+                onValueChange = { result.value = it })
         }
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -68,18 +74,24 @@ fun MolarWeight() {
                 .padding(5.dp)
         ) {
             Button(modifier = Modifier
+                .padding(5.dp)
                 .clip(shape = RoundedCornerShape(20))
                 .background(color = Color.Blue),
-                onClick = { /*TODO*/ }) {
+                onClick = {
+                    result.value = TextFieldValue()
+                    formula.value = TextFieldValue()
+                }) {
                 Text(text = stringResource(id = R.string.cleanButton))
             }
             Button(modifier = Modifier
+                .padding(5.dp)
                 .clip(shape = RoundedCornerShape(20))
                 .background(color = Color.Blue),
                 onClick = { /*TODO*/ }) {
                 Text(text = stringResource(id = R.string.calculateButton))
             }
             Button(modifier = Modifier
+                .padding(5.dp)
                 .clip(shape = RoundedCornerShape(20))
                 .background(color = Color.Blue),
                 onClick = { /*TODO*/ }) {
