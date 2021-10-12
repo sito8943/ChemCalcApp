@@ -1,4 +1,4 @@
-
+package com.sito.chemcalc
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sito.chemcalc.data.local.Repository

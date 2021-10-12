@@ -1,5 +1,6 @@
 package com.sito.chemcalc.ui.views
 
+import MolarWeight
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,7 +18,7 @@ class MainActivity : ComponentActivity() {
             ChemCalcAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    MolarWeight()
                 }
             }
         }

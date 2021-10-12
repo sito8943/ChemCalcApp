@@ -1,4 +1,7 @@
+import android.widget.Space
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -8,6 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
@@ -39,18 +43,47 @@ fun MolarWeight() {
                 .fillMaxWidth(),
             value = formula.value,
             onValueChange = { formula.value = it })
-        Row(verticalAlignment = Alignment.CenterVertically,
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-            .fillMaxWidth()) {
-            Text(text = error)
-            Button(onClick = { /*TODO*/ }) {
-
+                .fillMaxWidth()
+                .padding(5.dp)
+        ) {
+            TextField(
+                placeholder = { Text(text = stringResource(id = R.string.resultPlaceholder)) },
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    focusedBorderColor = Color.Blue,
+                    unfocusedBorderColor = Color.Gray
+                ),
+                modifier = Modifier
+                    .fillMaxWidth(),
+                value = formula.value,
+                onValueChange = { formula.value = it })
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp)
+        ) {
+            Button(modifier = Modifier
+                .clip(shape = RoundedCornerShape(20))
+                .background(color = Color.Blue),
+                onClick = { /*TODO*/ }) {
+                Text(text = stringResource(id = R.string.cleanButton))
             }
-            Button(onClick = { /*TODO*/ }) {
-
+            Button(modifier = Modifier
+                .clip(shape = RoundedCornerShape(20))
+                .background(color = Color.Blue),
+                onClick = { /*TODO*/ }) {
+                Text(text = stringResource(id = R.string.calculateButton))
             }
-            Button(onClick = { /*TODO*/ }) {
-
+            Button(modifier = Modifier
+                .clip(shape = RoundedCornerShape(20))
+                .background(color = Color.Blue),
+                onClick = { /*TODO*/ }) {
+                Text(text = stringResource(id = R.string.mathsButton))
             }
         }
     }
